@@ -47,5 +47,7 @@ Route::get('/home','HomeController@index');
 Route::get('/php','HomeController@PhpPage');
 Route::get('/js','HomeController@JsPage');
 
-Route::get('/receipe','ReceipeController@index');
+Route::resource('receipe','ReceipeController');
+
+
 
