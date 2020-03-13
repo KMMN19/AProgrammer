@@ -6,34 +6,23 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    //
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function index()
-    {	
-    	$name = 'Home Page';
-    	return view('home',compact('name'));
-    } 
-
-    public function PhpPage()
     {
-    	$data = array(
-		    	'frurit1' => 'apple',
-		    	'frurit2' => 'orange',
-		    	'frurit3' => 'stawberry',
-		    	'frurit4' => 'lime',
-    	);
-    	return view('php',compact('data'));
+        return view('welcome');
     }
-
-    public function JsPage()
-    {
-    	$data = array(
-		    	'frurit1' => 'apple',
-		    	'frurit2' => 'orange',
-		    	'frurit3' => 'stawberry',
-		    	'frurit4' => 'lime',
-    	);
-    	return view('php',compact('data'));
-    }
-
-
 }
