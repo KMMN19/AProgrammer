@@ -1,5 +1,5 @@
 <?php
-
+use App\Receipe;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,9 +49,23 @@ Route::get('/js','HomeController@JsPage');
 
 Route::resource('receipe','ReceipeController');
 
-
-
-
 Auth::routes();
 
 Route::get('home', 'HomeController@index');
+
+// app()->bind('test', function(){
+// 	return new \App\test("something is happening right now");
+// });
+
+// Route::get('/',function(){
+// 	dd(app('test'));
+// });
+
+
+// app()->bind('App\test', function(){
+// 	return new \App\test("something is happening right now");
+// });
+
+Route::get('/',function(){
+	dd(app('test'));
+});

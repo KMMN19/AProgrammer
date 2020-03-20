@@ -1,10 +1,4 @@
-ode Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights
-aprogrammer_laravel/resources/views/home.blade.php
-@HlaingTinHtun HlaingTinHtun end of week5
-1732c37 on Jan 1
-38 lines (29 sloc)  944 Bytes
-  
-@extends('layouts.app')
+ @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -22,6 +16,13 @@ aprogrammer_laravel/resources/views/home.blade.php
 
                     <div class="container">
                         <h2>Home Page</h2>
+
+                        @if(session("message"))
+                            <div class="alert alert-success" role="alert">
+                              <p>{{ session("message") }} </p>
+                            </div>
+                        @endif
+
                         <div>
                             <a href="/receipe/create"><button class="btn btn-success">Create</button></a>
                         </div>

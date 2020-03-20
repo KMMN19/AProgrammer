@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Receipe;
 use App\Category;
+use App\test;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ReceipeStored;
 
 class ReceipeController extends Controller
 {
@@ -51,8 +54,8 @@ class ReceipeController extends Controller
         'category' => 'required',
 
     ]);
-    
-    Receipe::create($validatedData + ['author_id' => auth()->id()]);
+
+    $receipe = Receipe::create($validatedData + ['author_id' => auth()->id()]);
 
     return redirect('receipe');
     }
@@ -68,6 +71,13 @@ class ReceipeController extends Controller
         $this->authorize('view',$receipe);
         return view('show',compact('receipe'));
     }
+
+    // public function show(test $test){
+    
+    // dd($test);
+
+    // }
+
 
     /**
      * Show the form for editing the specified resource.
