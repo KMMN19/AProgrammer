@@ -8,7 +8,8 @@ use App\test;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReceipeStored;
-
+use App\User;
+use App\Notifications\ReceipeStoredNotification;
 class ReceipeController extends Controller
 {
     /**
@@ -24,7 +25,13 @@ class ReceipeController extends Controller
 
     public function index()
     {
-        $data = Receipe::where('author_id', auth()->id())->get();
+        // $user =User::find(1); 
+        // $user->notify(new ReceipeStoredNotification());
+
+        // echo "sent notification";
+        // exit(6);
+
+        $data = Receipe::where('author_id', auth()->id())->paginate(3);
         return view('home',compact('data'));
     }
 

@@ -48,6 +48,7 @@ Route::get('/php','HomeController@PhpPage');
 Route::get('/js','HomeController@JsPage');
 
 Route::resource('receipe','ReceipeController');
+Route::resource('category','CategoryController');
 
 Auth::routes();
 
@@ -66,6 +67,10 @@ Route::get('home', 'HomeController@index');
 // 	return new \App\test("something is happening right now");
 // });
 
-Route::get('/',function(){
-	dd(app('test'));
-});
+// Route::get('/',function(){
+// 	dd(app('test'));
+// });
+
+Route::get('/','PublicController@index');
+Route::get('/detail/{id}','PublicController@show');
+
